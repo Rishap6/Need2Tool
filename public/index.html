@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Need2Tool - AI Tool Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🧠 Need2Tool</h1>
+    <p>From Need → To Tool. Instantly.</p>
+  </header>
+
+  <main>
+    <!-- Landing Page Section -->
+    <section id="landingPage">
+      <h2>Welcome to Need2Tool</h2>
+      <p>Just describe what you need, and we'll generate a working tool for you using AI.</p>
+
+      <div class="features">
+        <div class="feature-box">
+          <h3>⚡ Instant Generation</h3>
+          <p>Get real tools built in seconds using AI.</p>
+        </div>
+        <div class="feature-box">
+          <h3>🛠 Useful by Default</h3>
+          <p>We cover your basic dev and daily productivity needs.</p>
+        </div>
+        <div class="feature-box">
+          <h3>💡 AI-Powered Ideas</h3>
+          <p>No idea what to build? We’ll suggest it too!</p>
+        </div>
+      </div>
+
+      <button id="startBtn">🚀 Start Building</button>
+    </section>
+
+    <!-- Tool Generator Section (Initially Hidden) -->
+    <section id="toolPage" style="display: none;">
+      <h2>What do you need? 🛠</h2>
+      <p>Type your basic need and get an instant tool!</p>
+      <textarea id="userNeed" placeholder="e.g. I need a to-do list"></textarea>
+      <button id="generateBtn">Generate Tool</button>
+
+      <div id="outputArea">
+        <h3>🔧 Generated Tool:</h3>
+        <pre id="toolCode"></pre>
+        <button id="copyBtn">Copy Code</button>
+        <h3>👁 Live Preview:</h3>
+        <iframe id="livePreview"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with ❤️ by Rishi | Hack the Vibe 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
