@@ -20,7 +20,7 @@ generateBtn.addEventListener("click", async () => {
   livePreview.srcdoc = "";
 
   try {
-    const res = await fetch("http://localhost:3000/generate-tool", {
+    const res = await fetch("https://need2tool.onrender.com/generate-tool", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
