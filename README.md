@@ -45,12 +45,12 @@ Experimenting with how you phrase your input can lead to significantly better ou
 
 ---
 
-## 📸 Screenshots
+<!-- ## 📸 Screenshots
 
 > Add 2–3 screenshots here:
 - Landing Page
 - Tool input/output UI
-- Live preview of generated tool
+- Live preview of generated tool -->
 
 ---
 
