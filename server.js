@@ -33,7 +33,6 @@ app.post('/generate-tool', async (req, res) => {
             content: `Generate a standalone web tool that fulfills this need: "${userNeed}". The tool must be functional, minimal, and browser-ready. Avoid backend code and keep it lightweight.`
           }
         ],
-
         temperature: 0.7
       },
       {
@@ -58,7 +57,7 @@ app.post('/generate-tool', async (req, res) => {
   }
 });
 
-// 🧠 Suggest prompt
+// 🧠 Suggest prompt (Updated for beginner-friendly tools)
 app.post('/suggest', async (req, res) => {
   try {
     const response = await axios.post(
@@ -68,11 +67,12 @@ app.post('/suggest', async (req, res) => {
         messages: [
           {
             role: 'system',
-            content: 'You are a creative prompt generator for beginner-friendly HTML/CSS/JS mini tools.'
+            content: 'You are a helpful assistant that gives beginner-friendly frontend project ideas.'
           },
           {
             role: 'user',
-            content: 'Give me one unique and beginner-friendly idea for a frontend tool.'
+            content: `Suggest a fun, easy, and creative frontend tool idea that a beginner can build using only HTML, CSS, and JavaScript.
+Avoid anything that involves APIs, AI, authentication, login systems, databases, or complex backend logic.`
           }
         ],
         temperature: 0.9
@@ -86,8 +86,19 @@ app.post('/suggest', async (req, res) => {
     );
 
     const idea = response.data.choices[0]?.message?.content?.trim();
+
+    // 🛑 Block ideas with complex words
+    const bannedWords = ['api', 'ai', 'authentication', 'login', 'database', 'backend'];
+    const isTooHard = idea && bannedWords.some(word => idea.toLowerCase().includes(word));
+
+    if (!idea || isTooHard) {
+      return res.json({
+        idea: "Build a simple theme switcher website where users can toggle between light and dark mode with smooth animations."
+      });
+    }
+
     console.log("Suggested idea:", idea);
-    res.json({ idea: idea || null });
+    res.json({ idea });
 
   } catch (err) {
     console.error("Suggestion API Error:", err.response?.data || err.message);
