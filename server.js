@@ -24,15 +24,16 @@ app.post('/generate-tool', async (req, res) => {
       {
         model: 'mistralai/Mixtral-8x7B-Instruct-v0.1',
         messages: [
-          {
-            role: 'system',
-            content: 'You are a helpful AI tool generator. Respond ONLY with valid HTML code including CSS and JS, wrapped in a single <html> tag.'
-          },
-          {
-            role: 'user',
-            content: `Create a complete standalone HTML + CSS + JS app for this request: ${userNeed}`
-          }
-        ],
+  {
+    role: 'system',
+    content: 'You are a professional front-end web developer. Your job is to generate clean, responsive, and complete HTML+CSS+JavaScript apps inside a single <html> document. Only return code. No explanations, comments, or markdown.'
+  },
+  {
+    role: 'user',
+    content: `Generate a standalone web tool that fulfills this need: "${userNeed}". The tool must be functional, minimal, and browser-ready. Avoid backend code and keep it lightweight.`
+  }
+],
+
         temperature: 0.7
       },
       {
