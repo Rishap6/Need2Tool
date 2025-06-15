@@ -10,9 +10,12 @@ const livePreview = document.getElementById("livePreview");
 const copyBtn = document.getElementById("copyBtn");
 
 startBtn.addEventListener("click", () => {
-  landingPage.style.display = "none";
-  toolPage.style.display = "block";
+  landingPage.classList.add("hidden");
+  setTimeout(() => {
+    toolPage.classList.remove("hidden");
+  }, 400); // Give enough time for fade out
 });
+
 
 generateBtn.addEventListener("click", async () => {
   const need = userNeed.value.trim();
@@ -84,6 +87,45 @@ copyPromptBtn.addEventListener("click", () => {
   navigator.clipboard.writeText(prompt)
     .then(() => alert("📋 Prompt copied!"))
     .catch(() => alert("❌ Failed to copy prompt."));
+});
+
+// 🎤 Voice Input
+const voiceBtn = document.getElementById("voiceBtn");
+if ('webkitSpeechRecognition' in window) {
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+
+  voiceBtn.addEventListener("click", () => {
+    recognition.start();
+    voiceBtn.textContent = "🎙 Listening...";
+  });
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    userNeed.value = transcript;
+    voiceBtn.textContent = "🎤 Speak";
+  };
+
+  recognition.onerror = () => {
+    alert("Voice input failed. Try again.");
+    voiceBtn.textContent = "🎤 Speak";
+  };
+} else {
+  voiceBtn.disabled = true;
+  voiceBtn.textContent = "🎤 Not supported";
+}
+
+// 🌗 Theme Toggle
+const themeToggleBtn = document.getElementById('themeToggle');
+themeToggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  
+  // Optional: Change button text/icon
+  if (document.body.classList.contains('dark-mode')) {
+    themeToggleBtn.textContent = '☀️ Light Mode';
+  } else {
+    themeToggleBtn.textContent = '🌙 Dark Mode';
+  }
 });
 
 

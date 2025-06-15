@@ -6,6 +6,7 @@ body {
   background: #f4f6fc;
   color: #333;
   line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
 }
 
 header {
@@ -13,9 +14,44 @@ header {
   color: white;
   text-align: center;
   padding: 2.5rem 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
+  position: relative;
+}
+
+/* Fade transition for sections */
+section {
+  transition: opacity 0.5s ease, transform 0.4s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+
+#themeToggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ffffff33;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+#themeToggle:hover {
+  background-color: #ffffff55;
 }
 
 h1 {
@@ -45,7 +81,7 @@ textarea {
   border-radius: 10px;
   resize: vertical;
   background: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 button {
@@ -70,7 +106,7 @@ button:hover {
   background: #fff;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
 }
 
 pre {
@@ -115,18 +151,25 @@ footer {
   border: 1px solid #e2e8f0;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 textarea::placeholder {
   color: #888;
   font-style: italic;
+}
+
+.input-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 /* Responsive */
@@ -135,4 +178,41 @@ textarea::placeholder {
     width: 100%;
     margin-top: 0.5rem;
   }
+
+  .input-controls {
+    flex-direction: column;
+  }
+}
+
+/* 🌙 Dark Mode */
+body.dark-mode {
+  background-color: #1e1e2f;
+  color: #ddd;
+}
+
+body.dark-mode textarea,
+body.dark-mode pre,
+body.dark-mode iframe,
+body.dark-mode .feature-box,
+body.dark-mode #outputArea {
+  background-color: #2b2b3d;
+  color: #ddd;
+  border-color: #444;
+}
+
+body.dark-mode header {
+  background-color: #2d2aa6;
+}
+
+body.dark-mode button {
+  background-color: #6c63ff;
+}
+
+body.dark-mode button:hover {
+  background-color: #5148d6;
+}
+
+body.dark-mode footer {
+  background-color: #2a2a3c;
+  color: #aaa;
 }

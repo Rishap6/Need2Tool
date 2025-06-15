@@ -6,10 +6,11 @@
   <title>Need2Tool - AI Tool Generator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="light-mode">
   <header>
     <h1>🧠 Need2Tool</h1>
     <p>From Need → To Tool. Instantly.</p>
+    <button id="themeToggle">🌓 Toggle Theme</button>
   </header>
 
   <main>
@@ -37,18 +38,17 @@
     </section>
 
     <!-- Tool Generator Section (Initially Hidden) -->
-    <section id="toolPage" style="display: none;">
+    <section id="toolPage" class="hidden">
       <h2>What do you need? 🛠</h2>
       <p>Type your basic need and get an instant tool!</p>
 
-     <textarea id="userNeed" placeholder="e.g. I need a tip calculator or a random joke generator"></textarea>
-
-      <!-- ✅ New Copy Prompt Button -->
-      <button id="copyPromptBtn">📋 Copy Prompt</button>
-
-      <!-- Existing Buttons -->
-      <button id="suggestBtn">🧠 Suggest a Prompt</button>
-      <button id="generateBtn">⚙️ Generate Tool</button>
+      <textarea id="userNeed" placeholder="e.g. I need a tip calculator or a random joke generator"></textarea>
+      <div class="input-controls">
+        <button id="voiceBtn">🎤 Voice Input</button>
+        <button id="copyPromptBtn">📋 Copy Prompt</button>
+        <button id="suggestBtn">🧠 Suggest a Prompt</button>
+        <button id="generateBtn">⚙️ Generate Tool</button>
+      </div>
 
       <div id="outputArea">
         <h3>🔧 Generated Tool:</h3>
