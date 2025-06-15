@@ -40,13 +40,20 @@
     <section id="toolPage" style="display: none;">
       <h2>What do you need? 🛠</h2>
       <p>Type your basic need and get an instant tool!</p>
+
       <textarea id="userNeed" placeholder="e.g. I need a to-do list"></textarea>
-      <button id="generateBtn">Generate Tool</button>
+
+      <!-- ✅ New Copy Prompt Button -->
+      <button id="copyPromptBtn">📋 Copy Prompt</button>
+
+      <!-- Existing Buttons -->
+      <button id="suggestBtn">🧠 Suggest a Prompt</button>
+      <button id="generateBtn">⚙️ Generate Tool</button>
 
       <div id="outputArea">
         <h3>🔧 Generated Tool:</h3>
         <pre id="toolCode"></pre>
-        <button id="copyBtn">Copy Code</button>
+        <button id="copyBtn">📄 Copy Code</button>
         <h3>👁 Live Preview:</h3>
         <iframe id="livePreview"></iframe>
       </div>

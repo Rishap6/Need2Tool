@@ -10,6 +10,7 @@ app.use(express.static('public'));
 
 const TOGETHER_API_KEY = process.env.TOGETHER_API_KEY;
 
+// ✨ Generate full tool
 app.post('/generate-tool', async (req, res) => {
   const userNeed = req.body.need;
 
@@ -21,7 +22,7 @@ app.post('/generate-tool', async (req, res) => {
     const response = await axios.post(
       'https://api.together.xyz/v1/chat/completions',
       {
-        model: 'mistralai/Mixtral-8x7B-Instruct-v0.1', // You can change to another supported model
+        model: 'mistralai/Mixtral-8x7B-Instruct-v0.1',
         messages: [
           {
             role: 'system',
@@ -43,8 +44,7 @@ app.post('/generate-tool', async (req, res) => {
     );
 
     const generatedCode = response.data.choices[0]?.message?.content;
-
-    console.log("Raw Together AI Response:", generatedCode); // Helpful for debugging
+    console.log("Raw Together AI Response:", generatedCode);
 
     if (generatedCode && generatedCode.includes("<html")) {
       res.json({ code: generatedCode });
@@ -57,7 +57,46 @@ app.post('/generate-tool', async (req, res) => {
   }
 });
 
+// 🧠 Suggest prompt
+app.post('/suggest', async (req, res) => {
+  try {
+    const response = await axios.post(
+      'https://api.together.xyz/v1/chat/completions',
+      {
+        model: 'mistralai/Mixtral-8x7B-Instruct-v0.1',
+        messages: [
+          {
+            role: 'system',
+            content: 'You are a creative prompt generator for beginner-friendly HTML/CSS/JS mini tools.'
+          },
+          {
+            role: 'user',
+            content: 'Give me one unique and beginner-friendly idea for a frontend tool.'
+          }
+        ],
+        temperature: 0.9
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${TOGETHER_API_KEY}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    const idea = response.data.choices[0]?.message?.content?.trim();
+    console.log("Suggested idea:", idea);
+    res.json({ idea: idea || null });
+
+  } catch (err) {
+    console.error("Suggestion API Error:", err.response?.data || err.message);
+    res.status(500).json({ error: 'Failed to suggest idea.' });
+  }
+});
+
+// Start server
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ Server running on http://0.0.0.0:${PORT}`);
 });
+

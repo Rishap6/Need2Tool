@@ -3,7 +3,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
+  background: #f4f6fc;
   color: #333;
   line-height: 1.6;
 }
@@ -12,34 +12,40 @@ header {
   background-color: #4f46e5;
   color: white;
   text-align: center;
-  padding: 2rem 1rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 2.5rem 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   margin-bottom: 0.5rem;
 }
 
 h2 {
   text-align: center;
   margin-top: 1rem;
+  font-size: 2rem;
+  color: #1e1e2f;
 }
 
 main {
   padding: 2rem;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
 textarea {
   width: 100%;
   padding: 1rem;
-  font-size: 1rem;
+  font-size: 1.05rem;
   margin: 1rem 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
   resize: vertical;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 button {
@@ -47,41 +53,48 @@ button {
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s;
+  margin: 0.25rem;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 button:hover {
   background-color: #3730a3;
+  transform: translateY(-2px);
 }
 
 #outputArea {
   margin-top: 2rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
 }
 
 pre {
-  background: #f0f0f0;
+  background: #eef2ff;
   padding: 1rem;
   overflow-x: auto;
-  border-radius: 6px;
-  max-height: 300px;
+  border-radius: 8px;
+  max-height: 320px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 iframe {
   width: 100%;
-  height: 300px;
+  height: 320px;
   border: 1px solid #ddd;
   margin-top: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   background: white;
 }
 
 footer {
   text-align: center;
   padding: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
   background: #f1f1f1;
   color: #555;
 }
@@ -99,14 +112,27 @@ footer {
   flex: 1;
   min-width: 220px;
   background: white;
-  border: 1px solid #ddd;
+  border: 1px solid #e2e8f0;
   padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-box:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+textarea::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
 }
