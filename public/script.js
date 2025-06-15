@@ -8,6 +8,8 @@ const userNeed = document.getElementById("userNeed");
 const toolCode = document.getElementById("toolCode");
 const livePreview = document.getElementById("livePreview");
 const copyBtn = document.getElementById("copyBtn");
+const clearBtn = document.getElementById("clearBtn");
+
 
 startBtn.addEventListener("click", () => {
   landingPage.classList.add("hidden");
@@ -80,13 +82,9 @@ suggestBtn.addEventListener("click", async () => {
   }
 });
 
-copyPromptBtn.addEventListener("click", () => {
-  const prompt = userNeed.value.trim();
-  if (!prompt) return alert("There's no prompt to copy!");
-
-  navigator.clipboard.writeText(prompt)
-    .then(() => alert("📋 Prompt copied!"))
-    .catch(() => alert("❌ Failed to copy prompt."));
+clearBtn.addEventListener("click", () => {
+  userNeed.value = "";
+  userNeed.placeholder = "Describe your need here...";
 });
 
 // 🎤 Voice Input
