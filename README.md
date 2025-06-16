@@ -31,7 +31,7 @@ Built solo by **Rishi** in just 48 hours during **Hack the Vibe 2025**, this pro
 ## 💻 Demo
 
 🔗 **Live Site**: https://need2tool.onrender.com/ 
-🎥 **Demo Video**:
+🎥 **Demo Video**:https://youtu.be/sCJF-PZevK8
 
 ---
 
@@ -42,15 +42,6 @@ This project is hosted on a free Render server, so it may take 30–50 seconds t
 The AI may sometimes generate tools or code that aren’t exactly useful for your need — but you can improve your prompt and try again to get a better result.
 
 Experimenting with how you phrase your input can lead to significantly better outputs!
-
----
-
-<!-- ## 📸 Screenshots
-
-> Add 2–3 screenshots here:
-- Landing Page
-- Tool input/output UI
-- Live preview of generated tool -->
 
 ---
 
