@@ -92,7 +92,7 @@ Need2Tool doesn’t just talk. It **builds real, usable tools** that run immedia
 
 **Rishi**  
 🧑‍🎓 First-year engineering student  
-🧠 AI/Dev Newbie turned Hacker in 48 hours  
+🧠 AI/Dev Newbie turned Hacker in 48(+24) hours  
 💡 Project built solo for **Hack the Vibe 2025**
 
 ---
